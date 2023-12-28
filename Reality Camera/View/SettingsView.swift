@@ -37,7 +37,7 @@ struct SettingView: View {
                     Button("Закрыть") {
                         self.isSettingSheetShow.toggle()
                     }
-                    .foregroundColor(.white)
+                    .setSchemeColor()
                 }
             }
         }

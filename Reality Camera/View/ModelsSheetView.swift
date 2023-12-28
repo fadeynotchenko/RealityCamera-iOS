@@ -59,10 +59,10 @@ struct ModelsSheetView: View {
                     Button("Закрыть") {
                         self.isModelsSheetShow.toggle()
                     }
-                    .foregroundColor(.white)
+                    .setSchemeColor()
                 }
             }
-            .alert("Закрыть", isPresented: $isAdAlertShow) {
+            .alert("Премиальная модель", isPresented: $isAdAlertShow) {
                 Button("Посмотреть") {
                     self.isAdViewShow = true
                 }
@@ -86,8 +86,8 @@ struct HStackByCategory: View {
         VStack(alignment: .leading, spacing: 10) {
             Text(category.label)
                 .bold()
-                .foregroundColor(.white)
                 .font(.title3)
+                .setSchemeColor()
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 10) {
