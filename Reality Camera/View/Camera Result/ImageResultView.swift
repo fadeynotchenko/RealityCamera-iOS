@@ -47,7 +47,7 @@ struct ImageResultView: View {
                     Button("Закрыть") {
                         self.isImageViewShow = false
                     }
-                    .foregroundColor(.white)
+                    .setSchemeColor()
                 }
             }
         }

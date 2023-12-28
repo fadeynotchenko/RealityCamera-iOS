@@ -54,7 +54,7 @@ struct VideoResultView: View {
                     Button("Закрыть") {
                         self.isVideoViewShow = false
                     }
-                    .foregroundColor(.white)
+                    .setSchemeColor()
                 }
             }
         }

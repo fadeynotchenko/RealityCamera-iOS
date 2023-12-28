@@ -31,8 +31,7 @@ struct ModelItem: View {
                 }
                 .frame(width: 150, height: 150)
                 .background(Color(uiColor: .secondarySystemBackground))
-                .cornerRadius(8)
-                .shadow(radius: 3)
+                .cornerRadius(7)
                 .overlay {
                     if case .loading(let percent) = self.model.loadStatus {
                         RoundedRectangle(cornerRadius: 8)
@@ -62,9 +61,9 @@ struct ModelItem: View {
                 
                 HStack(spacing: 5) {
                     Text("\(model.loads)")
-                        .foregroundColor(.white)
                         .bold()
                         .font(.system(size: 16))
+                        .setSchemeColor()
 
                     MiniIcon(systemName: "square.and.arrow.down")
                     
@@ -93,7 +92,6 @@ struct ModelItem: View {
             .foregroundColor(.gray)
             .frame(width: 20, height: 20)
             .foregroundColor(.white)
-            .shadow(radius: 3)
         
     }
     
