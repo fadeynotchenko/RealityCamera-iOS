@@ -41,7 +41,7 @@ struct ModelsSheetView: View {
                             .frame(width: 80, height: 80)
                             .foregroundColor(.gray)
                         
-                        Text("Проблема соединения")
+                        Text("badConnection")
                             .foregroundColor(.gray)
                             .font(.system(size: 20))
                     }
@@ -53,23 +53,23 @@ struct ModelsSheetView: View {
                     AdView(model: selectedModel, isAdViewShow: $isAdViewShow)
                 }
             }
-            .navigationBarTitle("3D Модели", displayMode: .large)
+            .navigationBarTitle("3d", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Закрыть") {
+                    Button("close") {
                         self.isModelsSheetShow.toggle()
                     }
                     .setSchemeColor()
                 }
             }
-            .alert("Премиальная модель", isPresented: $isAdAlertShow) {
-                Button("Посмотреть") {
+            .alert("prem", isPresented: $isAdAlertShow) {
+                Button("show") {
                     self.isAdViewShow = true
                 }
                 
-                Button("Закрыть", role: .cancel) { }
+                Button("close", role: .cancel) { }
             } message: {
-                Text("Данная модель является премиальной, для ее загрузки требуется посмотреть рекламу")
+                Text("premHint")
             }
         }
     }
@@ -82,22 +82,22 @@ struct HStackByCategory: View {
     @Binding var isAdAlertShow: Bool
     @Binding var selectedModel: USDZ3DModel?
     
+    private let columns: [GridItem] = [.init(.adaptive(minimum: 150))]
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack {
             Text(category.label)
                 .bold()
-                .font(.title3)
+                .font(.title2)
                 .setSchemeColor()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 10) {
-                    ForEach(models) { model in
-                        ModelItem(model: model, isModelsSheetShow: $isModelsSheetShow, isAdAlertShow: $isAdAlertShow, selectedModel: $selectedModel)
-                            .frame(maxHeight: .infinity, alignment: .top)
-                    }
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(models) { model in
+                    ModelItemView(model: model, isModelsSheetShow: $isModelsSheetShow, isAdAlertShow: $isAdAlertShow, selectedModel: $selectedModel)
                 }
             }
         }
-        .padding(.leading)
     }
 }

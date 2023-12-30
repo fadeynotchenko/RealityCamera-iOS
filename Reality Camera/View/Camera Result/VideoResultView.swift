@@ -48,10 +48,10 @@ struct VideoResultView: View {
                 }
                 .shadow(radius: 3)
             }
-            .navigationBarTitle("Видео", displayMode: .inline)
+            .navigationBarTitle("video", displayMode: .inline)
             .toolbar {
                 ToolbarItem {
-                    Button("Закрыть") {
+                    Button("close") {
                         self.isVideoViewShow = false
                     }
                     .setSchemeColor()

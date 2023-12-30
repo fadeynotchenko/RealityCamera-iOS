@@ -158,7 +158,7 @@ struct BottomBarView: View {
                     self.cameraModeSelection = .photo
                 }
             } label: {
-                Text("Фото")
+                Text("photo")
                     .bold()
                     .font(.system(size: 17))
                     .foregroundColor(self.cameraModeSelection == .photo ? .white : .gray)
@@ -170,7 +170,7 @@ struct BottomBarView: View {
                     self.cameraModeSelection = .video
                 }
             } label: {
-                Text("Видео")
+                Text("video")
                     .bold()
                     .font(.system(size: 17))
                     .foregroundColor(self.cameraModeSelection == .video ? .white : .gray)

@@ -30,40 +30,8 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
-        .alert("Действия с объектом", isPresented: $placementSettings.isModelActionSheetShow) {
-            AlertView()
+        .alert("actions", isPresented: $placementSettings.isModelActionSheetShow) {
+            ARModelAlert()
         }
-    }
-    
-    @ViewBuilder
-    private func AlertView() -> some View {
-        if let entity = self.placementSettings.selectedEntity {
-            if entity.availableAnimations.isEmpty == false {
-                Button("Включить анимацию") {
-                    entity.availableAnimations.forEach {
-                        entity.playAnimation($0.repeat())
-                    }
-                    
-                    self.placementSettings.modelsAnimationDict[entity, default: false] = true
-                }
-                .disabled(placementSettings.modelsAnimationDict[entity, default: false] == true)
-
-                Button("Выключить анимацию") {
-                    entity.stopAllAnimations()
-
-                    self.placementSettings.modelsAnimationDict[entity, default: false] = false
-
-                }
-                .disabled(placementSettings.modelsAnimationDict[entity, default: false] == false)
-            }
-            
-            Button("Удалить", role: .destructive) {
-                entity.removeFromParent()
-                
-                self.placementSettings.historyOfAnchors = self.placementSettings.historyOfAnchors.filter { $0 != entity }
-            }
-        }
-        
-        Button("Закрыть", role: .cancel) { }
     }
 }

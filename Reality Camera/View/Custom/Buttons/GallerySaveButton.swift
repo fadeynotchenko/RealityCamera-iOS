@@ -14,7 +14,7 @@ struct GSButton: View {
         Button {
             self.action()
         } label: {
-            Text("Сохранить в галерею")
+            Text("save")
                 .foregroundColor(.white)
                 .bold()
                 .padding()

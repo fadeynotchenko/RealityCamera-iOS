@@ -17,24 +17,24 @@ struct SettingView: View {
         NavigationView {
             Form {
                 Section {
-                    Toggle("Перекрывать людей", isOn: $placementSettings.peopleOcclusionEnable)
+                    Toggle("settings1", isOn: $placementSettings.peopleOcclusionEnable)
                 }
                 
                 Section {
-                    Toggle("Перекрывать объекты", isOn: $placementSettings.objectOcclusionEnable)
+                    Toggle("settings2", isOn: $placementSettings.objectOcclusionEnable)
                 } footer: {
                     Label {
-                        Text("При включенном режиме 3D модель может 'прятаться' за объектом или человеком, если оно находится за ним. Данные функции работают при наличии LiDAR датчика в устройстве.")
+                        Text("settingsHint")
                     } icon: {
                         Image(systemName: "info.circle")
                     }
                     .foregroundColor(.gray)
                 }
             }
-            .navigationBarTitle(Text("Настройки"), displayMode: .large)
+            .navigationBarTitle("settings", displayMode: .large)
             .toolbar {
                 ToolbarItem {
-                    Button("Закрыть") {
+                    Button("close") {
                         self.isSettingSheetShow.toggle()
                     }
                     .setSchemeColor()

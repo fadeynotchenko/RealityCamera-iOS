@@ -49,7 +49,7 @@ final class InterstitialAdViewController: UIViewController {
     }
     
     func loadAd() {
-        let configuration = YMAAdRequestConfiguration(adUnitID: "demo-interstitial-yandex")
+        let configuration = YMAAdRequestConfiguration(adUnitID: "R-M-4775023-1")
         self.interstitialAdLoader.loadAd(with: configuration)
     }
     

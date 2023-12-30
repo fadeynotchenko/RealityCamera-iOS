@@ -41,10 +41,10 @@ struct ImageResultView: View {
                     }
                 }
             }
-            .navigationBarTitle("Фото", displayMode: .inline)
+            .navigationBarTitle("photo", displayMode: .inline)
             .toolbar {
                 ToolbarItem {
-                    Button("Закрыть") {
+                    Button("close") {
                         self.isImageViewShow = false
                     }
                     .setSchemeColor()
