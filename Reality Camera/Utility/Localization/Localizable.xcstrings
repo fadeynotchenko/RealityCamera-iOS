@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld" : {
-
-    },
     "3d" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -78,13 +75,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Connection problem"
+            "value" : "A problem with the network connection. New models cannot be downloaded"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Проблемы соединения"
+            "value" : "Проблема с подключением к сети. Загрузка новых моделей невозможна"
           }
         }
       }
@@ -119,6 +116,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Удалить"
+          }
+        }
+      }
+    },
+    "error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ошибка"
+          }
+        }
+      }
+    },
+    "firstWelcomeSubTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reality Camera is an app for creating unique content with your favorite 3D models"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reality Camera - приложение для создания уникального контента с вашими любимыми 3D моделями"
+          }
+        }
+      }
+    },
+    "firstWelcomeTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать!"
+          }
+        }
+      }
+    },
+    "history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "История"
           }
         }
       }
@@ -193,6 +254,12 @@
           }
         }
       }
+    },
+    "secondWelcomeSubTitle" : {
+
+    },
+    "secondWelcomeTitle" : {
+
     },
     "settings" : {
       "extractionState" : "manual",

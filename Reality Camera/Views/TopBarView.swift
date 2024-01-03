@@ -14,13 +14,13 @@ struct TopBarView: View {
     
     var body: some View {
         ZStack {
-            if self.placementSettings.historyOfAnchors.isEmpty == false {
+            if self.placementSettings.anchorOnScene.isEmpty == false {
                 CButton(iconName: "arrow.uturn.backward", color: .red, size: 25) {
-                    if let anchor = self.placementSettings.historyOfAnchors.last {
+                    if let anchor = self.placementSettings.anchorOnScene.last {
                         anchor.removeFromParent()
                         
                         withAnimation {
-                            self.placementSettings.historyOfAnchors = self.placementSettings.historyOfAnchors.filter { $0 != anchor }
+                            self.placementSettings.anchorOnScene = self.placementSettings.anchorOnScene.filter { $0 != anchor }
                         }
                     }
                 }

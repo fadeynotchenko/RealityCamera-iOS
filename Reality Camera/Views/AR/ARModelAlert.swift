@@ -35,7 +35,7 @@ struct ARModelAlert: View {
             Button("delete", role: .destructive) {
                 entity.removeFromParent()
                 
-                self.placementSettings.historyOfAnchors = self.placementSettings.historyOfAnchors.filter { $0 != entity }
+                self.placementSettings.anchorOnScene = self.placementSettings.anchorOnScene.filter { $0 != entity }
             }
         }
         

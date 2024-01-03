@@ -67,7 +67,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         ARVariables.arView.scene.addAnchor(anchorEntity)
         
-        self.placementSettings.historyOfAnchors.append(anchorEntity)
+        self.placementSettings.anchorOnScene.append(anchorEntity)
     }
 }
 

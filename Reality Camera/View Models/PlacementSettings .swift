@@ -12,15 +12,7 @@ import ARKit
 
 class PlacementSettings: ObservableObject {
     
-    @Published var selectedModel: USDZ3DModel? {
-        willSet {
-            guard let model = newValue else {
-                return
-            }
-            
-            print("Selected model \(model.name)")
-        }
-    }
+    @Published var selectedModel: USDZ3DModel?
     
     @Published var confirmedModel: USDZ3DModel? {
         willSet {
@@ -28,11 +20,14 @@ class PlacementSettings: ObservableObject {
                 return
             }
             
-            print("Confirmed model \(model.name)")
+            //MARK: Delete same model and append. Like Set, but with sort
+            self.historyOfModels = self.historyOfModels.filter { $0.id != model.id }
+            self.historyOfModels.append(model)
         }
     }
     
-    @Published var historyOfAnchors: [AnchorEntity] = []
+    @Published var anchorOnScene: [AnchorEntity] = []
+    @Published var historyOfModels: [USDZ3DModel] = []
     
     @Published var peopleOcclusionEnable = false
     @Published var objectOcclusionEnable = false
