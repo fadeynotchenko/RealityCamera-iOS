@@ -45,7 +45,7 @@ struct BottomBarView: View {
                     }
                     .disabled(cameraVM.isVideoRecord)
                     .fullScreenCover(isPresented: $isModelsSheetShow) {
-                        ModelsSheetView(isModelsSheetShow: $isModelsSheetShow)
+                        ModelsView(isModelsViewShow: $isModelsSheetShow)
                     }
                 }
                 
@@ -56,28 +56,8 @@ struct BottomBarView: View {
                     
                     if self.cameraModeSelection == .photo {
                         PhotoButtonView()
-                            .sheet(isPresented: $isImageViewShow) {
-                                if let image = self.cameraVM.imageFromCamera {
-                                    ImageResultView(image: image, isImageViewShow: $isImageViewShow)
-                                }
-                            }
-                            .onChange(of: cameraVM.imageFromCamera) { _ in
-                                self.isImageViewShow.toggle()
-                                
-                                self.showRateView()
-                            }
                     } else {
                         VideoButtonView()
-                            .sheet(isPresented: $isVideoViewShow) {
-                                if let url = self.cameraVM.videoURL {
-                                    VideoResultView(url: url, isVideoViewShow: $isVideoViewShow)
-                                }
-                            }
-                            .onChange(of: cameraVM.videoURL) { _ in
-                                self.isVideoViewShow.toggle()
-                                
-                                self.showRateView()
-                            }
                     }
                 }
                 
@@ -117,6 +97,16 @@ struct BottomBarView: View {
             }
         }
         .shadow(radius: 3)
+        .sheet(isPresented: $isImageViewShow) {
+            if let image = self.cameraVM.imageFromCamera {
+                ImageResultView(image: image, isImageViewShow: $isImageViewShow)
+            }
+        }
+        .onChange(of: cameraVM.imageFromCamera) { _ in
+            self.isImageViewShow.toggle()
+            
+            self.showRateView()
+        }
     }
     
     private func VideoButtonView() -> some View {
@@ -148,6 +138,16 @@ struct BottomBarView: View {
             if self.cameraVM.isVideoRecord {
                 self.cameraVM.recordTimeSeconds += 1
             }
+        }
+        .sheet(isPresented: $isVideoViewShow) {
+            if let url = self.cameraVM.videoURL {
+                VideoResultView(url: url, isVideoViewShow: $isVideoViewShow)
+            }
+        }
+        .onChange(of: cameraVM.videoURL) { _ in
+            self.isVideoViewShow.toggle()
+            
+            self.showRateView()
         }
     }
     

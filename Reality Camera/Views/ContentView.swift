@@ -12,6 +12,8 @@ struct ContentView: View {
     @EnvironmentObject private var placementSettings: PlacementSettings
     @EnvironmentObject private var firebaseVM: FirebaseViewModel
     
+    @AppStorage("isFirstEntry") private var isFirstEntry = true
+    
     var body: some View {
         ZStack {
             ARViewContainer()
@@ -30,6 +32,9 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+//        .fullScreenCover(isPresented: $isFirstEntry) {
+//            WelcomeView()
+//        }
         .alert("actions", isPresented: $placementSettings.isModelActionSheetShow) {
             ARModelAlert()
         }

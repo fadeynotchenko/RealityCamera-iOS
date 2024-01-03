@@ -17,7 +17,7 @@ struct ModelItemView: View {
     
     var body: some View {
         GeometryReader { reader in
-            let size = reader.size
+            let width = reader.size.width
             
             Button {
                 self.downloadModelEntity()
@@ -30,19 +30,34 @@ struct ModelItemView: View {
                     } else {
                         ProgressView()
                     }
-                }
-                .frame(width: size.width, height: size.width)
-                .background(Color(uiColor: .secondarySystemBackground))
-                .cornerRadius(7)
-                .overlay {
+                    
+                    HStack {
+                        Spacer()
+                        
+                        if self.model.loadStatus == .notLoaded {
+                            MiniIcon(systemName: "icloud.and.arrow.down")
+                        }
+                        
+                        if self.model.isPremium && self.model.isAdViewed == false {
+                            MiniIcon(systemName: "star")
+                        }
+                        
+                        if self.model.isAnimation {
+                            MiniIcon(systemName: "play.circle")
+                        }
+                    }
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .padding(5)
+                    
+                    //MARK: Loading progress View
                     if case .loading(let percent) = self.model.loadStatus {
                         RoundedRectangle(cornerRadius: 8)
                             .trim(from: 0.0, to: CGFloat(percent))
                             .stroke(Color.blue, lineWidth: 4.0)
                             .animation(.linear, value: percent)
                     }
-                }
-                .overlay {
+                    
+                    //MARK: Cancel loading button
                     if case .loading(_) = self.model.loadStatus {
                         Button {
                             self.model.stopDownload()
@@ -54,33 +69,9 @@ struct ModelItemView: View {
                         }
                     }
                 }
-                .overlay(alignment: .bottomTrailing) {
-                    HStack(spacing: 5) {
-                        Text("\(model.loads)")
-                            .bold()
-                            .font(.system(size: 16))
-                            .setSchemeColor()
-                        
-                        MiniIcon(systemName: "square.and.arrow.down")
-                        
-                        Spacer()
-                        
-                        Group {
-                            if self.model.loadStatus == .notLoaded {
-                                MiniIcon(systemName: "icloud.and.arrow.down")
-                            }
-                            
-                            if self.model.isPremium && self.model.isAdViewed == false {
-                                MiniIcon(systemName: "star")
-                            }
-                            
-                            if self.model.isAnimation {
-                                MiniIcon(systemName: "play.circle")
-                            }
-                        }
-                    }
-                    .padding(5)
-                }
+                .frame(width: width, height: width)
+                .background(Color(uiColor: .secondarySystemBackground))
+                .cornerRadius(7)
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -91,7 +82,7 @@ struct ModelItemView: View {
             .resizable()
             .scaledToFit()
             .foregroundColor(.gray)
-            .frame(width: 20, height: 20)
+            .frame(width: 17, height: 17)
             .foregroundColor(.white)
         
     }
@@ -109,7 +100,7 @@ extension ModelItemView {
         
         switch self.model.loadStatus {
         case .loaded:
-            //show placement view
+            //MARK: Model is loaded -> show Placement View
             self.model.asyncLoadModelEntity { isLoaded in
                 if isLoaded {
                     self.isModelsSheetShow = false
@@ -120,6 +111,7 @@ extension ModelItemView {
         case .loading(_):
             self.model.stopDownload()
         case .notLoaded:
+            //MARK: First Load
             self.model.asyncLoadModelEntity()
         }
     }

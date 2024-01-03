@@ -54,17 +54,15 @@ extension CustomARView {
             config.sceneReconstruction = .mesh
         }
         
-        ARVariables.configuration = config
-        
         self.session.run(config)
     }
     
     func enableGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showAlert(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findEntity(_:)))
         self.addGestureRecognizer(tapGesture)
     }
     
-    @objc func showAlert(_ rec: UITapGestureRecognizer) {
+    @objc func findEntity(_ rec: UITapGestureRecognizer) {
         let location = rec.location(in: self)
         
         if let entity = self.entity(at: location), let modelEntity = entity as? ModelEntity {
@@ -74,6 +72,7 @@ extension CustomARView {
         }
     }
     
+    //MARK: Tracking changes to camera settings
     private func setupSubscribers() {
         self.peopleOcclusionCancellable = placementSettings.$peopleOcclusionEnable.sink { [weak self] isEnabled in
             self?.updatePeopleOcclusionState(isEnabled: isEnabled)
