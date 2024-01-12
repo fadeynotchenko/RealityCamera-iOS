@@ -12,28 +12,23 @@ struct TopBarView: View {
     @EnvironmentObject private var placementSettings: PlacementSettings
     @EnvironmentObject private var cameraVM: CameraViewModel
     
+    @AppStorage("isFirstEntry") private var isFirstEntry = true
+    
     var body: some View {
-        ZStack {
-            if self.placementSettings.anchorOnScene.isEmpty == false {
-                CButton(iconName: "arrow.uturn.backward", color: .red, size: 25) {
-                    if let anchor = self.placementSettings.anchorOnScene.last {
-                        anchor.removeFromParent()
-                        
-                        withAnimation {
-                            self.placementSettings.anchorOnScene = self.placementSettings.anchorOnScene.filter { $0 != anchor }
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .topLeading)
-                .padding(.leading)
+        HStack {
+            CButton(iconName: "info.circle.fill", color: .white, size: 24) {
+                self.isFirstEntry = true
             }
+            .padding()
+            .hidden()
+            
+            Spacer()
             
             VStack(spacing: 15) {
                 Text("Reality Camera")
                     .foregroundColor(.white)
                     .bold()
                     .font(.system(size: 19))
-                    .frame(maxWidth: .infinity, alignment: .center)
                 
                 if self.cameraVM.isVideoRecord {
                     Text(cameraVM.recordTimeSeconds.secondsToHoursMinutesSeconds())
@@ -45,7 +40,14 @@ struct TopBarView: View {
                         .cornerRadius(5)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .top)
+            
+            Spacer()
+            
+            CButton(iconName: "info.circle.fill", color: .white, size: 28) {
+                self.isFirstEntry = true
+            }
+            .padding()
+            
         }
     }
 }

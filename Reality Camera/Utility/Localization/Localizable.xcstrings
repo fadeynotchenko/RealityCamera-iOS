@@ -130,7 +130,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ошибка"
           }
         }
@@ -178,7 +178,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "История"
           }
         }
@@ -236,7 +236,14 @@
       }
     },
     "Reality Camera" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reality Camera"
+          }
+        }
+      }
     },
     "save" : {
       "extractionState" : "manual",
@@ -255,11 +262,117 @@
         }
       }
     },
-    "secondWelcomeSubTitle" : {
-
+    "secondWelcomeSubTitleEndStepOne" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " In the window that opens, select the desired 3D model. If the selected model has not been used before, the loading stage will start first, after that it will become available to add the model to the scene"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " В открывшемся окне выберите нужную 3D модель. Если выбранная модель ранее не использовалась, то сначала начнется этап загрузки, после этого станет доступно добавление модели на сцену"
+          }
+        }
+      }
+    },
+    "secondWelcomeSubTitleIconOne" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - 3D model has not been downloaded to the device"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - 3D модель не скачена на устройство"
+          }
+        }
+      }
+    },
+    "secondWelcomeSubTitleIconThree" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - Animated 3D model"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - Анимированная 3D модель"
+          }
+        }
+      }
+    },
+    "secondWelcomeSubTitleIconTwo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - Premium 3D model, you have to watch the commercials to place it on stage"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " - Премиальная 3D модель, для ее размещения на сцену нужно посмотреть рекламу"
+          }
+        }
+      }
+    },
+    "secondWelcomeSubTitleModelsIcons" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Each model in the list has one or more icons next to it:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возле каждой модели в списке находится одна или несколько иконок:"
+          }
+        }
+      }
+    },
+    "secondWelcomeSubTitleStartStepOne" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click on the button at the bottom of the screen "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите на кнопку внизу экрана "
+          }
+        }
+      }
     },
     "secondWelcomeTitle" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to download a 3D model?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как загрузить 3D модель?"
+          }
+        }
+      }
     },
     "settings" : {
       "extractionState" : "manual",
@@ -342,6 +455,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Смотреть"
+          }
+        }
+      }
+    },
+    "thirdWelcomeSubTitleStepOneFooter" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To position an object click on "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Чтобы расположить объект нажмите на "
+          }
+        }
+      }
+    },
+    "thirdWelcomeSubTitleStepOneHeader" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the location where you want the object to be and make sure the camera is focused on your desired location as shown in the video"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите место, где будет находиться объект и убедитесь, что камера сфокусирована на нужном вам месте, как показано на видео"
+          }
+        }
+      }
+    },
+    "thirdWelcomeTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How do I position the 3D model?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как расположить 3D модель?"
           }
         }
       }

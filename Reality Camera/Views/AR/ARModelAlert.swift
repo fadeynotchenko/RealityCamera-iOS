@@ -12,30 +12,30 @@ struct ARModelAlert: View {
     @EnvironmentObject private var placementSettings: PlacementSettings
     
     var body: some View {
-        if let entity = self.placementSettings.selectedEntity {
-            if entity.availableAnimations.isEmpty == false {
+        if let modelEntity = self.placementSettings.selectedModelEntity {
+            if modelEntity.availableAnimations.isEmpty == false {
                 Button("animOn") {
-                    entity.availableAnimations.forEach {
-                        entity.playAnimation($0.repeat())
+                    modelEntity.availableAnimations.forEach {
+                        modelEntity.playAnimation($0.repeat())
                     }
                     
-                    self.placementSettings.modelsAnimationDict[entity, default: false] = true
+                    self.placementSettings.modelsAnimationDict[modelEntity, default: false] = true
                 }
-                .disabled(placementSettings.modelsAnimationDict[entity, default: false] == true)
+                .disabled(placementSettings.modelsAnimationDict[modelEntity, default: false] == true)
 
                 Button("animOff") {
-                    entity.stopAllAnimations()
+                    modelEntity.stopAllAnimations()
 
-                    self.placementSettings.modelsAnimationDict[entity, default: false] = false
+                    self.placementSettings.modelsAnimationDict[modelEntity, default: false] = false
 
                 }
-                .disabled(placementSettings.modelsAnimationDict[entity, default: false] == false)
+                .disabled(placementSettings.modelsAnimationDict[modelEntity, default: false] == false)
             }
             
             Button("delete", role: .destructive) {
-                entity.removeFromParent()
+                modelEntity.removeFromParent()
                 
-                self.placementSettings.anchorOnScene = self.placementSettings.anchorOnScene.filter { $0 != entity }
+                self.placementSettings.modelsOnScene = self.placementSettings.modelsOnScene.filter { $0 != modelEntity }
             }
         }
         

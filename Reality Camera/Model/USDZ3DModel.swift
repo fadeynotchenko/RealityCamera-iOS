@@ -11,7 +11,9 @@ import RealityKit
 import Combine
 import FirebaseStorage
 
-class USDZ3DModel: Identifiable, ObservableObject {
+class USDZ3DModel: Identifiable, ObservableObject, ModelProtocol {
+    var modelEntity: ModelEntity?
+    
     let id = UUID()
     let name: String
     let scale: Float
@@ -19,8 +21,6 @@ class USDZ3DModel: Identifiable, ObservableObject {
     let isPremium: Bool
     let category: ModelCategory
     let loads: Int
-    
-    var modelEntity: ModelEntity?
     
     @Published var isAdViewed = false
     @Published var thumbnail: UIImage?

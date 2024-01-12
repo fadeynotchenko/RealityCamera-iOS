@@ -16,27 +16,26 @@ class PlacementSettings: ObservableObject {
     
     @Published var confirmedModel: USDZ3DModel? {
         willSet {
-            guard let model = newValue else {
-                return
-            }
+            guard let model = newValue else { return }
             
             //MARK: Delete same model and append. Like Set, but with sort
             self.historyOfModels = self.historyOfModels.filter { $0.id != model.id }
             self.historyOfModels.append(model)
+            
+            guard let modelEntity = model.modelEntity else { return }
+            
+            self.modelsOnScene.append(modelEntity)
         }
     }
     
-    @Published var anchorOnScene: [AnchorEntity] = []
+    @Published var modelsOnScene: [ModelEntity] = []
     @Published var historyOfModels: [USDZ3DModel] = []
     
     @Published var peopleOcclusionEnable = false
     @Published var objectOcclusionEnable = false
     
-    @Published var selected3DText: Text3DModel?
-    @Published var confirmed3DText: Text3DModel?
-    
-    @Published var isModelActionSheetShow = false
-    @Published var selectedEntity: Entity?
+    @Published var isModelActionsAlertShow = false
+    @Published var selectedModelEntity: ModelEntity?
     
     @Published var modelsAnimationDict = [Entity: Bool]()
     

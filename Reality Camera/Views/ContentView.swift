@@ -24,7 +24,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                if self.placementSettings.selectedModel == nil && self.placementSettings.selected3DText == nil {
+                if self.placementSettings.selectedModel == nil {
                     BottomBarView()
                 } else {
                     PlacementView()
@@ -32,10 +32,10 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
-//        .fullScreenCover(isPresented: $isFirstEntry) {
-//            WelcomeView()
-//        }
-        .alert("actions", isPresented: $placementSettings.isModelActionSheetShow) {
+        .fullScreenCover(isPresented: $isFirstEntry) {
+            WelcomeView()
+        }
+        .alert("actions", isPresented: $placementSettings.isModelActionsAlertShow) {
             ARModelAlert()
         }
     }

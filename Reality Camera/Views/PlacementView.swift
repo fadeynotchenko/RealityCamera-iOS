@@ -18,8 +18,6 @@ struct PlacementView: View {
             PlacementButton(systemName: "xmark.circle.fill") {
                 withAnimation {
                     self.placementSettings.selectedModel = nil
-                    
-                    self.placementSettings.selected3DText = nil
                 }
             }
             
@@ -30,14 +28,9 @@ struct PlacementView: View {
                     if let selectedModel = self.placementSettings.selectedModel {
                         FirebaseHelper.incrementLoads(by: selectedModel.name)
                         
-                        //3d model
                         self.placementSettings.confirmedModel = selectedModel
                         self.placementSettings.selectedModel = nil
                         
-                    } else {
-                        //3d text
-                        self.placementSettings.confirmed3DText = self.placementSettings.selected3DText
-                        self.placementSettings.selected3DText = nil
                     }
                 }
             }

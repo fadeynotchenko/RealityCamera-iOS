@@ -25,7 +25,7 @@ class CustomARView: ARView {
         
         super.init(frame: frameRect)
         
-        self.focusEntity = FocusEntity(on: self, focus: .init(style: .classic(color: .white)))
+        self.focusEntity = FocusEntity(on: self, style: .classic(color: .yellow))
         
         self.configure()
         
@@ -43,8 +43,21 @@ class CustomARView: ARView {
     }
 }
 
+//MARK: Config
 extension CustomARView {
     private func configure() {
+        self.environment.lighting.intensityExponent = 1
+        
+        self.placementSettings.sceneObserver = self.scene.subscribe(to: SceneEvents.Update.self) { _ in
+            self.updateScene()
+        }
+        
+        self.prepareForRecording()
+        
+        self.configureARWorldTracking()
+    }
+    
+    private func configureARWorldTracking() {
         let config = ARWorldTrackingConfiguration()
         
         config.providesAudioData = true
@@ -56,21 +69,10 @@ extension CustomARView {
         
         self.session.run(config)
     }
-    
-    func enableGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findEntity(_:)))
-        self.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func findEntity(_ rec: UITapGestureRecognizer) {
-        let location = rec.location(in: self)
-        
-        if let entity = self.entity(at: location), let modelEntity = entity as? ModelEntity {
-            self.placementSettings.isModelActionSheetShow = true
-            
-            self.placementSettings.selectedEntity = modelEntity
-        }
-    }
+}
+
+//MARK: Object and People occlusion
+extension CustomARView {
     
     //MARK: Tracking changes to camera settings
     private func setupSubscribers() {
@@ -111,5 +113,50 @@ extension CustomARView {
         }
         
         self.session.run(config)
+    }
+}
+
+//MARK: Tap gesture logic
+extension CustomARView {
+    func enableGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findEntity(_:)))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    //MARK: Find entity by tap location, if model find -> open actions alert
+    @objc func findEntity(_ rec: UITapGestureRecognizer) {
+        let location = rec.location(in: self)
+        
+        if let entity = self.entity(at: location), let modelEntity = entity as? ModelEntity {
+            self.placementSettings.isModelActionsAlertShow = true
+            
+            self.placementSettings.selectedModelEntity = modelEntity
+        }
+    }
+}
+
+//MARK: Update scene and place models
+extension CustomARView {
+    private func updateScene() {
+        self.focusEntity?.isEnabled = self.placementSettings.selectedModel != nil
+        
+        if let confirmedModel = self.placementSettings.confirmedModel, let modelEntity = confirmedModel.modelEntity {
+            
+            self.place(modelEntity)
+            
+            self.placementSettings.confirmedModel = nil
+        }
+    }
+    
+    private func place(_ modelEntity: ModelEntity) {
+        let clonedEntity = modelEntity.clone(recursive: true)
+        clonedEntity.generateCollisionShapes(recursive: true)
+        
+        self.installGestures([.all], for: clonedEntity)
+        
+        let anchorEntity = AnchorEntity(plane: .any)
+        anchorEntity.addChild(clonedEntity)
+        
+        self.scene.addAnchor(anchorEntity)
     }
 }

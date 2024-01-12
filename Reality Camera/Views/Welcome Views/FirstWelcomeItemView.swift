@@ -11,23 +11,22 @@ struct FirstWelcomeItemView: View {
     @Binding var selection: WelcomeItems
     
     var body: some View {
-        GeometryReader { reader in
-            VStack(alignment: .leading) {
-                Logo()
-                
-                Header()
-                
-                Spacer()
-                
-                NextWelcomeItemButton {
-                    withAnimation {
-                        self.selection = .second
-                    }
+        VStack(alignment: .leading) {
+            Spacer()
+            
+            Logo()
+            
+            Header()
+            
+            Spacer()
+            
+            NextWelcomeItemButton {
+                withAnimation {
+                    self.selection = .second
                 }
             }
-            .padding()
-            .padding(.top, reader.size.height / 4)
         }
+        .padding()
     }
     
     private func Logo() -> some View {
