@@ -11,7 +11,7 @@ import RealityKit
 import Combine
 import FirebaseStorage
 
-class USDZ3DModel: Identifiable, ObservableObject, ModelProtocol {
+class USDZ3DModel: Identifiable, ObservableObject {
     var modelEntity: ModelEntity?
     
     let id = UUID()

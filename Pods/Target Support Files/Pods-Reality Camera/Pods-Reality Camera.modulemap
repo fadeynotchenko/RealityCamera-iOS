@@ -1,0 +1,6 @@
+module Pods_Reality_Camera {
+  umbrella header "Pods-Reality Camera-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,8 @@
+#import "YMAErrors.h"
+#import "YMAGender.h"
+#import "YMAHorizontalOffset.h"
+#import "YMANativeAdErrors.h"
+#import "YMANativeAdView.h"
+#import "YMANativeMediaView.h"
+#import "YMAVersion.h"
+#import "YandexMobileAds.h"

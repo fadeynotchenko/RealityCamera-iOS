@@ -1,0 +1,6 @@
+module VGSL_Fundamentals_Tiny {
+  umbrella header "VGSL_Fundamentals_Tiny-umbrella.h"
+
+  export *
+  module * { export * }
+}

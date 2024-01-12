@@ -1,0 +1,6 @@
+module VGSL_Fundamentals {
+  umbrella header "VGSL_Fundamentals-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+module BaseUIPublic {
+  umbrella header "VGSLBaseUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
