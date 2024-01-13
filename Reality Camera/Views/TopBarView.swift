@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopBarView: View {
-    
+
     @EnvironmentObject private var placementSettings: PlacementSettings
     @EnvironmentObject private var cameraVM: CameraViewModel
     
@@ -16,10 +16,10 @@ struct TopBarView: View {
     
     var body: some View {
         HStack {
-            CButton(iconName: "info.circle.fill", color: .white, size: 24) {
+            //MARK: Need for text tearing out, there will be another button in the future,
+            CButton(iconName: "info.circle.fill", color: .white, size: 25) {
                 self.isFirstEntry = true
             }
-            .padding()
             .hidden()
             
             Spacer()
@@ -29,7 +29,8 @@ struct TopBarView: View {
                     .foregroundColor(.white)
                     .bold()
                     .font(.system(size: 19))
-                
+                    .frame(maxWidth: .infinity, alignment: .center)
+
                 if self.cameraVM.isVideoRecord {
                     Text(cameraVM.recordTimeSeconds.secondsToHoursMinutesSeconds())
                         .bold()
@@ -40,14 +41,15 @@ struct TopBarView: View {
                         .cornerRadius(5)
                 }
             }
+//            .frame(maxWidth: .infinity, alignment: .top)
             
             Spacer()
             
-            CButton(iconName: "info.circle.fill", color: .white, size: 28) {
+            CButton(iconName: "info.circle.fill", color: .white, size: 25) {
                 self.isFirstEntry = true
             }
-            .padding()
-            
+//            .frame(maxWidth: .infinity, alignment: .topTrailing)
+            .padding(.trailing)
         }
     }
 }

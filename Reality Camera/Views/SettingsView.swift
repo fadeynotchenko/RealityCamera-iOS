@@ -13,14 +13,14 @@ struct SettingView: View {
     
     @EnvironmentObject private var placementSettings: PlacementSettings
     
+    @AppStorage("modelsScale") private var modelsScale = 0.2
+    
     var body: some View {
         NavigationView {
-            Form {
+            List {
                 Section {
                     Toggle("settings1", isOn: $placementSettings.peopleOcclusionEnable)
-                }
-                
-                Section {
+                    
                     Toggle("settings2", isOn: $placementSettings.objectOcclusionEnable)
                 } footer: {
                     Label {
@@ -30,8 +30,14 @@ struct SettingView: View {
                     }
                     .foregroundColor(.gray)
                 }
+                
+                Section {
+                    Slider(value: $modelsScale, in: 0.1...1, step: 0.1)
+                } header: {
+                    Text("settingsSlider")
+                }
             }
-            .navigationBarTitle("settings", displayMode: .large)
+            .navigationTitle("settings")
             .toolbar {
                 ToolbarItem {
                     Button("close") {

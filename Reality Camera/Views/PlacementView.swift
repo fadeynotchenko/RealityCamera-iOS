@@ -40,7 +40,7 @@ struct PlacementView: View {
         .padding(.bottom, 40)
     }
     
-    func PlacementButton(systemName: String, action: @escaping () -> ()) -> some View {
+    private func PlacementButton(systemName: String, action: @escaping () -> ()) -> some View {
         Button(action: action) {
             Image(systemName: systemName)
                 .font(.system(size: 50, weight: .light, design: .default))

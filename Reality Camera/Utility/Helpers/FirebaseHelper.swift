@@ -55,13 +55,12 @@ class FirebaseHelper {
                 let data = documentSnapshot.data()
                 let name = documentSnapshot.documentID
                 
-                let scale = data["scale"] as? Double ?? 0.3
                 let isAnimation = data["isAnimation"] as? Bool ?? false
                 let isPremium = data["prem"] as? Bool ?? false
                 let loads = data["loads"] as? Int ?? 0
                 let category = ModelCategory(rawValue: data["category"] as? String ?? "") ?? .memes
                 
-                return USDZ3DModel(name: name, scale: Float(scale), isAnimation: isAnimation, isPremium: isPremium, category: category, loads: loads)
+                return USDZ3DModel(name: name, isAnimation: isAnimation, isPremium: isPremium, category: category, loads: loads)
             }
             
             completion(models)

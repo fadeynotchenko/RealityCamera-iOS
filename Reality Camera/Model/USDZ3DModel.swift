@@ -16,7 +16,6 @@ class USDZ3DModel: Identifiable, ObservableObject {
     
     let id = UUID()
     let name: String
-    let scale: Float
     let isAnimation: Bool
     let isPremium: Bool
     let category: ModelCategory
@@ -29,9 +28,10 @@ class USDZ3DModel: Identifiable, ObservableObject {
     private var cancellable: AnyCancellable?
     private var storageTask: StorageDownloadTask?
     
-    init(name: String, scale: Float, isAnimation: Bool, isPremium: Bool, category: ModelCategory, loads: Int) {
+    @AppStorage("modelsScale") private var modelsScale = 0.2
+    
+    init(name: String, isAnimation: Bool, isPremium: Bool, category: ModelCategory, loads: Int) {
         self.name = name
-        self.scale = scale
         self.isAnimation = isAnimation
         self.isPremium = isPremium
         self.category = category
@@ -89,7 +89,7 @@ class USDZ3DModel: Identifiable, ObservableObject {
                 parentEntity.collision = CollisionComponent(shapes: [ShapeResource.generateBox(size: entityBounds.extents).offsetBy(translation: entityBounds.center)])
                 
                 self.modelEntity = parentEntity
-                self.modelEntity?.scale *= self.scale
+                self.modelEntity?.scale *= Float(self.modelsScale)
             }
         } progressHandler: { percent in
             withAnimation {

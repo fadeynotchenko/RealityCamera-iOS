@@ -431,13 +431,29 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When enabled, the 3D model can 'hide' behind an object or person if it is behind it. These functions work if there is a LiDAR sensor in the device."
+            "value" : "When enabled, the 3D model can \"hide\" if it is behind a person or object. These functions work if the device has a LiDAR sensor."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Если эта функция включена, 3D-модель может «спрятаться», если находится позади человека или какого-то объекта. Эти функции работают, если в устройстве есть датчик LiDAR."
+          }
+        }
+      }
+    },
+    "settingsSlider" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basic 3D model size"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Если эта функция включена, 3D-модель может \"спрятаться\" за объектом или человеком, если он находится позади него. Эти функции работают, если в устройстве есть датчик LiDAR."
+            "value" : "Базовый размер 3D модели"
           }
         }
       }
@@ -469,7 +485,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Чтобы расположить объект нажмите на "
           }
         }

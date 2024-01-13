@@ -38,7 +38,6 @@
 		431028852B3CA84200E6722E /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431028812B3CA84200E6722E /* FirebaseViewModel.swift */; };
 		431028862B3CA84200E6722E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431028822B3CA84200E6722E /* NetworkMonitor.swift */; };
 		431028872B3CA84200E6722E /* PlacementSettings .swift in Sources */ = {isa = PBXBuildFile; fileRef = 431028832B3CA84200E6722E /* PlacementSettings .swift */; };
-		431028892B3CA84F00E6722E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 431028882B3CA84F00E6722E /* GoogleService-Info.plist */; };
 		4310288C2B3CAB4200E6722E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4310288B2B3CAB4200E6722E /* FirebaseAnalytics */; };
 		4310288E2B3CAB4200E6722E /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 4310288D2B3CAB4200E6722E /* FirebaseAnalyticsOnDeviceConversion */; };
 		431028902B3CAB4200E6722E /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4310288F2B3CAB4200E6722E /* FirebaseAnalyticsSwift */; };
@@ -77,6 +76,7 @@
 		433E974F2B51AEB600742203 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 433E974E2B51AEB600742203 /* SDWebImageSwiftUI */; };
 		433E97512B51AED200742203 /* NextWelcomeItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E97502B51AED200742203 /* NextWelcomeItemButton.swift */; };
 		433E97532B51AEEB00742203 /* WelcomeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433E97522B51AEEB00742203 /* WelcomeItems.swift */; };
+		433E97552B51D6CC00742203 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 433E97542B51D6CC00742203 /* GoogleService-Info.plist */; };
 		438470982B3D9E3C00DF68D7 /* View Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438470972B3D9E3C00DF68D7 /* View Extensions.swift */; };
 		4384709A2B3DA9BE00DF68D7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 438470992B3DA9BE00DF68D7 /* Localizable.xcstrings */; };
 		4384709D2B3DE42B00DF68D7 /* ARModelAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4384709C2B3DE42B00DF68D7 /* ARModelAlert.swift */; };
@@ -116,7 +116,6 @@
 		431028812B3CA84200E6722E /* FirebaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
 		431028822B3CA84200E6722E /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		431028832B3CA84200E6722E /* PlacementSettings .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlacementSettings .swift"; sourceTree = "<group>"; };
-		431028882B3CA84F00E6722E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		431028C92B3CAF1C00E6722E /* Reality-Camera-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Reality-Camera-Info.plist"; sourceTree = SOURCE_ROOT; };
 		433E97402B51AE5700742203 /* focus.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = focus.gif; sourceTree = "<group>"; };
 		433E97422B51AE6E00742203 /* LazyModelsGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyModelsGrid.swift; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 		433E97482B51AE8400742203 /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		433E97502B51AED200742203 /* NextWelcomeItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextWelcomeItemButton.swift; sourceTree = "<group>"; };
 		433E97522B51AEEB00742203 /* WelcomeItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeItems.swift; sourceTree = "<group>"; };
+		433E97542B51D6CC00742203 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		438470972B3D9E3C00DF68D7 /* View Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View Extensions.swift"; sourceTree = "<group>"; };
 		438470992B3DA9BE00DF68D7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		4384709C2B3DE42B00DF68D7 /* ARModelAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModelAlert.swift; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 				4310287F2B3CA84200E6722E /* View Models */,
 				4310287A2B3CA83D00E6722E /* Model */,
 				431028642B3CA83600E6722E /* Utility */,
-				431028882B3CA84F00E6722E /* GoogleService-Info.plist */,
 				433E97402B51AE5700742203 /* focus.gif */,
+				433E97542B51D6CC00742203 /* GoogleService-Info.plist */,
 				431028352B3CA76500E6722E /* Assets.xcassets */,
 				431028372B3CA76500E6722E /* Preview Content */,
 			);
@@ -363,10 +363,10 @@
 		433E97442B51AE8400742203 /* Welcome Views */ = {
 			isa = PBXGroup;
 			children = (
-				433E97452B51AE8400742203 /* ThirdWelcomeItemView.swift */,
-				433E97462B51AE8400742203 /* SecondWelcomeItemView.swift */,
-				433E97472B51AE8400742203 /* FirstWelcomeItemView.swift */,
 				433E97482B51AE8400742203 /* WelcomeView.swift */,
+				433E97472B51AE8400742203 /* FirstWelcomeItemView.swift */,
+				433E97462B51AE8400742203 /* SecondWelcomeItemView.swift */,
+				433E97452B51AE8400742203 /* ThirdWelcomeItemView.swift */,
 			);
 			path = "Welcome Views";
 			sourceTree = "<group>";
@@ -490,8 +490,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				433E97412B51AE5700742203 /* focus.gif in Resources */,
+				433E97552B51D6CC00742203 /* GoogleService-Info.plist in Resources */,
 				431028392B3CA76500E6722E /* Preview Assets.xcassets in Resources */,
-				431028892B3CA84F00E6722E /* GoogleService-Info.plist in Resources */,
 				4384709A2B3DA9BE00DF68D7 /* Localizable.xcstrings in Resources */,
 				431028362B3CA76500E6722E /* Assets.xcassets in Resources */,
 			);
@@ -716,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Reality Camera/Preview Content\"";
 				DEVELOPMENT_TEAM = FLB2U2JCVM;
 				ENABLE_PREVIEWS = YES;
@@ -736,7 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = FN.RealityCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -755,7 +755,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Reality Camera/Preview Content\"";
 				DEVELOPMENT_TEAM = FLB2U2JCVM;
 				ENABLE_PREVIEWS = YES;
@@ -775,7 +775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = FN.RealityCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
