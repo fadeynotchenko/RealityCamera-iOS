@@ -16,7 +16,6 @@ struct BottomBarView: View {
     @State private var isSettingSheetShow = false
     @State private var isImageViewShow = false
     @State private var isVideoViewShow = false
-    @State private var isAdd3DTextViewShow = false
     
     @State private var isTorchOn = false
     

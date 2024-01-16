@@ -37,20 +37,18 @@ struct ModelsView: View {
                     
                     //MARK: All models sorted by category
                     ForEach(ModelCategory.allCases, id: \.self) { category in
-                        let modelsByCategory = self.firebaseViewModel.models.filter({ $0.category == category })
+                        let modelsByCategory = self.firebaseViewModel.models.filter { $0.category == category }
+                        let title = "\(category.label) (\(modelsByCategory.count))"
                         
                         if modelsByCategory.isEmpty == false {
-                            LazyModelsGrid(models: modelsByCategory, title: "\(category.label) (\(modelsByCategory.count))", isModelsSheetShow: $isModelsViewShow, isAdAlertShow: $isAdAlertShow, selectedModel: $selectedModel)
+                            LazyModelsGrid(models: modelsByCategory, title: title, isModelsSheetShow: $isModelsViewShow, isAdAlertShow: $isAdAlertShow, selectedModel: $selectedModel)
                         }
                     }
                 }
                 
+                //MARK: Loading models from database
                 if self.firebaseViewModel.models.isEmpty {
                     ProgressView()
-                }
-                
-                if let selectedModel = self.selectedModel, self.isAdViewShow, self.networkMonitor.isConnected {
-                    AdView(model: selectedModel, isAdViewShow: $isAdViewShow)
                 }
             }
             .navigationTitle("3d")
@@ -62,6 +60,12 @@ struct ModelsView: View {
                     .setSchemeColor()
                 }
             }
+            .sheet(isPresented: $isAdViewShow) {
+                if let selectedModel = self.selectedModel {
+                    ADView(selectedModel: selectedModel, isAdViewShow: $isAdViewShow)
+                }
+            }
+            //MARK: Premium models alert
             .alert("prem", isPresented: $isAdAlertShow) {
                 Button("show") {
                     self.isAdViewShow = true
@@ -71,11 +75,13 @@ struct ModelsView: View {
             } message: {
                 Text("premHint")
             }
+            //MARK: Internet error alert
             .alert("error", isPresented: $isConnectionAlertShow) {
                 Button("close", role: .cancel) { }
             } message: {
                 Text("badConnection")
             }
+            //MARK: Check internet connection
             .onChange(of: networkMonitor.isConnected) { _ in
                 if self.networkMonitor.isConnected == false {
                     self.isConnectionAlertShow = true

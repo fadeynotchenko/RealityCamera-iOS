@@ -35,6 +35,22 @@
         }
       }
     },
+    "adLoading" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading Ads..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка рекламы..."
+          }
+        }
+      }
+    },
     "animOff" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -184,6 +200,16 @@
         }
       }
     },
+    "permissionsDenied" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для работы приложения требуется доступ к камере и микрофону. Нажмите, чтобы открыть настройки. После измнения настроек требуется перезайти в приложение"
+          }
+        }
+      }
+    },
     "photo" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -237,9 +263,15 @@
     },
     "Reality Camera" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "The app requires access to a camera and microphone. Press to open the settings. After changing the settings, you need to restart the application"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Reality Camera"
           }
         }

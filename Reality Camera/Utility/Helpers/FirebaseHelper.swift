@@ -47,6 +47,7 @@ class FirebaseHelper {
         Firestore.firestore().collection("Models").document(name).updateData(["loads": FieldValue.increment(Int64(1))])
     }
     
+    
     static func fetchData(completion: @escaping ([USDZ3DModel]) -> ()) {
         Firestore.firestore().collection("Models").order(by: "loads", descending: true).getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }

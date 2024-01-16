@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject private var placementSettings: PlacementSettings
+    @EnvironmentObject private var cameraVM: CameraViewModel
     @EnvironmentObject private var firebaseVM: FirebaseViewModel
     
     @AppStorage("isFirstEntry") private var isFirstEntry = true
@@ -31,12 +32,20 @@ struct ContentView: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
+            
+            if self.cameraVM.cameraPermissionGranted == false || self.cameraVM.audioPermissionGranted == false {
+                //MARK: Open settings
+                Button("permissionsDenied") { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) }
+            }
         }
         .fullScreenCover(isPresented: $isFirstEntry) {
             WelcomeView()
         }
         .alert("actions", isPresented: $placementSettings.isModelActionsAlertShow) {
             ARModelAlert()
+        }
+        .onAppear {
+            self.cameraVM.requestCameraAndAudioPermissions()
         }
     }
 }

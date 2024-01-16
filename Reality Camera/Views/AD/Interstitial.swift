@@ -8,7 +8,7 @@
 import YandexMobileAds
 import SwiftUI
 
-struct AdView: UIViewControllerRepresentable {
+struct InterstitialView: UIViewControllerRepresentable {
     
     @ObservedObject var model: USDZ3DModel
     @Binding var isAdViewShow: Bool
@@ -20,8 +20,7 @@ struct AdView: UIViewControllerRepresentable {
         return view
     }
     
-    func updateUIViewController(_ uiViewController: InterstitialAdViewController, context: Context) {
-    }
+    func updateUIViewController(_ uiViewController: InterstitialAdViewController, context: Context) { }
 }
 
 final class InterstitialAdViewController: UIViewController {
@@ -41,6 +40,7 @@ final class InterstitialAdViewController: UIViewController {
     init(model: USDZ3DModel, isAdViewShow: Binding<Bool>) {
         self.model = model
         self.isAdViewShowBinding = isAdViewShow
+        
         super.init(nibName: nil, bundle: nil)
     }
     

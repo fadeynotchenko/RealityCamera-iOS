@@ -41,14 +41,12 @@ struct TopBarView: View {
                         .cornerRadius(5)
                 }
             }
-//            .frame(maxWidth: .infinity, alignment: .top)
             
             Spacer()
             
             CButton(iconName: "info.circle.fill", color: .white, size: 25) {
                 self.isFirstEntry = true
             }
-//            .frame(maxWidth: .infinity, alignment: .topTrailing)
             .padding(.trailing)
         }
     }
